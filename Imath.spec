@@ -66,7 +66,6 @@ Requires:       python-devel
 #{python3_sitearch}/imathnumpy.so
 
 %files devel
-%doc html/
 %{_includedir}/Imath/
 %{_libdir}/pkgconfig/Imath.pc
 %{_libdir}/pkgconfig/PyImath.pc
