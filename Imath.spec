@@ -24,27 +24,27 @@ functions, and data types common in computer graphics applications, including
 the “half” 16-bit floating-point type.
 
 
-%package -n python3-%{name}
+%package -n python-%{name}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 Summary:        Python module for Imath
 
-%description -n python3-%{name}
+%description -n python-%{name}
 %{summary}.
 
 
 %package devel
 Summary:        Development files for Imath
 Requires:       %{name}%{?_isa} = %{version}-%{release}
-Requires:       python3-%{name}%{?_isa} = %{version}-%{release}
+Requires:       python-%{name}%{?_isa} = %{version}-%{release}
 Requires:       boost-devel
-Requires:       python3-devel
+Requires:       python-devel
 
 %description devel
 %{summary}.
 
 
 %prep
-%autosetup -n %{srcname}-%{version}
+%autosetup -n %{name}-%{version}
 
 
 %build
@@ -63,10 +63,10 @@ rm -rf html/.{doctrees,buildinfo}
 %files
 %license LICENSE.md
 %doc CHANGES.md CODE_OF_CONDUCT.md CONTRIBUTING.md CONTRIBUTORS.md README.md SECURITY.md
-%{_libdir}/libImath-3_0.so.%{sover}*
+%{_libdir}/libImath-3_0.so.%{major}*
 
-%files -n python3-%{name}
-%{_libdir}/libPyImath_Python3_9-3_0.so.%{sover}*
+%files -n python-%{name}
+%{_libdir}/libPyImath_Python3_9-3_0.so.%{major}*
 %{python3_sitearch}/imath.so
 %{python3_sitearch}/imathnumpy.so
 
