@@ -63,7 +63,7 @@ Requires:       python-devel
 %files -n python-%{name}
 %{_libdir}/libPyImath_Python3_9-3_0.so.%{major}*
 %{python3_sitearch}/imath.so
-%{python3_sitearch}/imathnumpy.so
+#{python3_sitearch}/imathnumpy.so
 
 %files devel
 %doc html/
