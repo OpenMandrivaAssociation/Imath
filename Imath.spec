@@ -1,18 +1,15 @@
-%global srcname Imath
-%global sover 28
+%global major 28
 
-Name:           imath
-Version:        3.0.2
-Release:        4%{?dist}
+Name:           Imath
+Version:        3.0.4
+Release:        1
 Summary:        Library of 2D and 3D vector, matrix, and math operations for computer graphics
-
 License:        BSD
 URL:            https://github.com/AcademySoftwareFoundation/Imath
-Source0:        https://github.com/AcademySoftwareFoundation/%{srcname}/archive/v%{version}/%{srcname}-%{version}.tar.gz
+Source0:        https://github.com/AcademySoftwareFoundation/Imath/archive/v%{version}/%{name}-%{version}.tar.gz
 
 
 BuildRequires:  cmake
-BuildRequires:  gcc gcc-c++
 BuildRequires:  make
 BuildRequires:  boost-devel
 BuildRequires:  python3-devel
@@ -52,7 +49,7 @@ Requires:       python3-devel
 
 %build
 %cmake -DPYTHON=ON
-%cmake_build
+%make_build
 
 # Generate html docs
 PYTHONPATH=${PWD} sphinx-build-3 docs/ html
@@ -61,15 +58,7 @@ rm -rf html/.{doctrees,buildinfo}
 
 
 %install
-%cmake_install
-
-
-%check
-# https://github.com/AcademySoftwareFoundation/Imath/issues/151
-%ifnarch i686
-%ctest
-%endif
-
+%make_install -C build
 
 %files
 %license LICENSE.md
