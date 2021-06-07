@@ -52,7 +52,7 @@ Requires:       python-devel
 %make_build
 
 # Generate html docs
-PYTHONPATH=${PWD} sphinx-build-3 docs/ html
+PYTHONPATH=${PWD} sphinx-build docs/ html
 # Remove the sphinx-build leftovers
 rm -rf html/.{doctrees,buildinfo}
 
