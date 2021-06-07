@@ -12,10 +12,10 @@ Source0:        https://github.com/AcademySoftwareFoundation/Imath/archive/v%{ve
 BuildRequires:  cmake
 BuildRequires:  make
 BuildRequires:  boost-devel
-BuildRequires:  python3-devel
+BuildRequires:  python-devel
 # For documentation generation
-BuildRequires:  python3-sphinx
-BuildRequires:  python3-breathe
+BuildRequires:  python-sphinx
+#BuildRequires:  python3-breathe
 
 %description
 Imath is a basic, light-weight, and efficient C++ representation of 2D and 3D
