@@ -14,7 +14,7 @@ BuildRequires:  make
 BuildRequires:  boost-devel
 BuildRequires:  python-devel
 # For documentation generation
-BuildRequires:  python-sphinx
+#BuildRequires:  python-sphinx
 #BuildRequires:  python3-breathe
 
 %description
@@ -50,11 +50,6 @@ Requires:       python-devel
 %build
 %cmake -DPYTHON=ON
 %make_build
-
-# Generate html docs
-PYTHONPATH=${PWD} sphinx-build docs/ html
-# Remove the sphinx-build leftovers
-rm -rf html/.{doctrees,buildinfo}
 
 
 %install
