@@ -5,7 +5,7 @@
 %define libname	%mklibname Imath %{api} %{major}
 
 Name:           Imath
-Version:        3.0.4
+Version:        3.0.5
 Release:        1
 Summary:        Library of 2D and 3D vector, matrix, and math operations for computer graphics
 License:        BSD
