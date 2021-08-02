@@ -1,11 +1,13 @@
-%global major 28
-%global api 3_0
+%global major 29
+%global api 3_1
 
 %define devname	%mklibname %{name} -d
 %define libname	%mklibname Imath %{api} %{major}
 
+%define oldlibname %mklibname Imath 3_0 28
+
 Name:           Imath
-Version:        3.0.5
+Version:        3.1.2
 Release:        1
 Summary:        Library of 2D and 3D vector, matrix, and math operations for computer graphics
 License:        BSD
@@ -13,7 +15,7 @@ URL:            https://github.com/AcademySoftwareFoundation/Imath
 Source0:        https://github.com/AcademySoftwareFoundation/Imath/archive/v%{version}/%{name}-%{version}.tar.gz
 
 BuildRequires:  cmake
-BuildRequires:  make
+BuildRequires:  ninja
 BuildRequires:  boost-devel
 BuildRequires:  pkgconfig(python)
 # For documentation generation
@@ -29,6 +31,7 @@ the “half” 16-bit floating-point type.
 %package -n	%{libname}
 Summary:	libraries from Imath
 Group:		System/Libraries
+Obsoletes:	%{oldlibname} < 3.1.0-0
 
 %description -n	%{libname}
 Libraries from Imath.
@@ -49,21 +52,25 @@ Requires:       python-%{name}%{?_isa} = %{version}-%{release}
 Requires:       boost-devel
 Requires:       python-devel
 
-Provides:       Imath-devel
-Provides:       imath-devel
+Provides:       Imath-devel = %{EVRD}
+Provides:       imath-devel = %{EVRD}
+
+# We can't coexist with the old ilmbase (same libImath.so filename)
+# but it can coexist in the same repo for the time being...
+Obsoletes:	%{_lib}ilmbase2_5-devel < 3.0.0-0
 
 %description -n %{devname}
 %{summary}.
 
 %prep
 %autosetup -n %{name}-%{version}
+%cmake -DPYTHON=ON -G Ninja
 
 %build
-%cmake -DPYTHON=ON
-%make_build
+%ninja_build -C build
 
 %install
-%make_install -C build
+%ninja_install -C build
 
 %files
 %license LICENSE.md
