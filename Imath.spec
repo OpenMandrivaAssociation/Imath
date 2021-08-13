@@ -6,18 +6,18 @@
 
 %define oldlibname %mklibname Imath 3_0 28
 
-Name:           Imath
-Version:        3.1.2
-Release:        1
-Summary:        Library of 2D and 3D vector, matrix, and math operations for computer graphics
-License:        BSD
-URL:            https://github.com/AcademySoftwareFoundation/Imath
-Source0:        https://github.com/AcademySoftwareFoundation/Imath/archive/v%{version}/%{name}-%{version}.tar.gz
+Name:		Imath
+Version:	3.1.2
+Release:	2
+Summary:	Library of 2D and 3D vector, matrix, and math operations for computer graphics
+License:	BSD
+URL:		https://github.com/AcademySoftwareFoundation/Imath
+Source0:	https://github.com/AcademySoftwareFoundation/Imath/archive/v%{version}/%{name}-%{version}.tar.gz
 
-BuildRequires:  cmake
-BuildRequires:  ninja
-BuildRequires:  boost-devel
-BuildRequires:  pkgconfig(python)
+BuildRequires:	cmake
+BuildRequires:	ninja
+BuildRequires:	boost-devel
+BuildRequires:	pkgconfig(python)
 # For documentation generation
 #BuildRequires:  python-sphinx
 #BuildRequires:  python-breathe
@@ -28,32 +28,31 @@ vectors and matrices and other simple but useful mathematical objects,
 functions, and data types common in computer graphics applications, including
 the “half” 16-bit floating-point type.
 
-%package -n	%{libname}
+%package -n %{libname}
 Summary:	libraries from Imath
 Group:		System/Libraries
 Obsoletes:	%{oldlibname} < 3.1.0-0
 
-%description -n	%{libname}
+%description -n %{libname}
 Libraries from Imath.
 
 %package -n python-%{name}
-Requires:       %{name}%{?_isa} = %{version}-%{release}
-Requires:       %{libname}%{?_isa} = %{version}-%{release}
-Summary:        Python module for Imath
+Requires:	%{name}%{?_isa} = %{version}-%{release}
+Requires:	%{libname}%{?_isa} = %{version}-%{release}
+Summary:	Python module for Imath
 
 %description -n python-%{name}
 %{summary}.
 
 %package -n %{devname}
-Summary:        Development files for Imath
-Requires:       %{name}%{?_isa} = %{version}-%{release}
-Requires:       %{libname}%{?_isa} = %{version}-%{release}
-Requires:       python-%{name}%{?_isa} = %{version}-%{release}
-Requires:       boost-devel
-Requires:       python-devel
-
-Provides:       Imath-devel = %{EVRD}
-Provides:       imath-devel = %{EVRD}
+Summary:	Development files for Imath
+Requires:	%{name}%{?_isa} = %{version}-%{release}
+Requires:	%{libname}%{?_isa} = %{version}-%{release}
+Requires:	python-%{name}%{?_isa} = %{version}-%{release}
+Requires:	boost-devel
+Requires:	python-devel
+Provides:	Imath-devel = %{EVRD}
+Provides:	imath-devel = %{EVRD}
 
 # We can't coexist with the old ilmbase (same libImath.so filename)
 # but it can coexist in the same repo for the time being...
