@@ -66,6 +66,10 @@ Obsoletes:	%{_lib}ilmbase2_5-devel < 3.0.0-0
 %cmake -DPYTHON=ON -G Ninja
 
 %build
+%ifarch i686
+export CC=gcc
+export CXX=g++
+%endif
 %ninja_build -C build
 
 %install
