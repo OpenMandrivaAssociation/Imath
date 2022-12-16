@@ -8,7 +8,7 @@
 
 Name:		Imath
 Version:	3.1.6
-Release:	2
+Release:	3
 Summary:	Library of 2D and 3D vector, matrix, and math operations for computer graphics
 License:	BSD
 URL:		https://github.com/AcademySoftwareFoundation/Imath
@@ -18,7 +18,7 @@ BuildRequires:	cmake
 BuildRequires:	ninja
 BuildRequires:	boost-devel
 BuildRequires:	boost-numpy-devel
-BuildRequires:	python3dist(numpy)
+BuildRequires:	python%{pyver}dist(numpy)
 BuildRequires:	pkgconfig(python3)
 # For documentation generation
 #BuildRequires:  python-sphinx
