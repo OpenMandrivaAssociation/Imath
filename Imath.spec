@@ -1,4 +1,4 @@
-%global major 29
+%global major 30
 %global api 3_1
 
 %define devname	%mklibname %{name} -d
