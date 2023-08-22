@@ -2,13 +2,14 @@
 %global api 3_1
 
 %define devname	%mklibname %{name} -d
-%define libname	%mklibname Imath %{api} %{major}
+%define libname	%mklibname Imath
 
-%define oldlibname %mklibname Imath 3_0 28
+%define oldlibname %mklibname Imath 3_1 29
+%define olderlibname %mklibname Imath 3_0 28
 
 Name:		Imath
 Version:	3.1.9
-Release:	2
+Release:	3
 Summary:	Library of 2D and 3D vector, matrix, and math operations for computer graphics
 License:	BSD
 URL:		https://github.com/AcademySoftwareFoundation/Imath
@@ -33,7 +34,8 @@ the “half” 16-bit floating-point type.
 %package -n %{libname}
 Summary:	libraries from Imath
 Group:		System/Libraries
-Obsoletes:	%{oldlibname} < 3.1.0-0
+%rename %{oldlibname}
+Obsoletes:	%{olderlibname} < 3.1.0-0
 
 %description -n %{libname}
 Libraries from Imath.
