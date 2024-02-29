@@ -8,7 +8,7 @@
 %define olderlibname %mklibname Imath 3_0 28
 
 Name:		Imath
-Version:	3.1.10
+Version:	3.1.11
 Release:	1
 Summary:	Library of 2D and 3D vector, matrix, and math operations for computer graphics
 License:	BSD
