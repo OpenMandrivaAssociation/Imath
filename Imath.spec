@@ -8,8 +8,8 @@
 %define olderlibname %mklibname Imath 3_0 28
 
 Name:		Imath
-Version:	3.1.12
-Release:	4
+Version:	3.2.1
+Release:	1
 Summary:	Library of 2D and 3D vector, matrix, and math operations for computer graphics
 License:	BSD
 URL:		https://github.com/AcademySoftwareFoundation/Imath
