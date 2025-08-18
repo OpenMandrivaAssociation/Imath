@@ -9,7 +9,7 @@
 
 Name:		Imath
 Version:	3.1.12
-Release:	4
+Release:	5
 Summary:	Library of 2D and 3D vector, matrix, and math operations for computer graphics
 License:	BSD
 URL:		https://github.com/AcademySoftwareFoundation/Imath
