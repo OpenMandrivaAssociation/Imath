@@ -22,6 +22,7 @@ BuildRequires:	boost-numpy-devel
 BuildRequires:	python%{pyver}dist(numpy)
 BuildRequires:	pkgconfig(python3)
 BuildRequires:  python
+BuildRequires:  pkgconfig(pybind11)
 # For documentation generation
 #BuildRequires:  python-sphinx
 #BuildRequires:  python-breathe
