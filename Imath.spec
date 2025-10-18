@@ -69,7 +69,7 @@ Obsoletes:	%{_lib}ilmbase2_5-devel < 3.0.0-0
 
 %prep
 %autosetup -n %{name}-%{version}
-%cmake -DPYTHON=ON -DPython3_LIBRARY=/usr/lib64/libpython3.11.so -G Ninja
+%cmake -DPYTHON=ON -DPython3_LIBRARY=/usr/lib64/libpython3.11.so -DCMAKE_EXE_LINKER_FLAGS="-lpython3.11" -DCMAKE_SHARED_LINKER_FLAGS="-lpython3.11" -G Ninja
 
 %build
 %ninja_build -C build
