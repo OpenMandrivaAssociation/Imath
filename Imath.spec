@@ -1,5 +1,5 @@
-%global major 29
-%global api 3_1
+%global major 30
+%global api 3_2
 
 %define devname	%mklibname %{name} -d
 %define libname	%mklibname Imath
