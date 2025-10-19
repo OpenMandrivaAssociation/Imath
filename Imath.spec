@@ -87,6 +87,7 @@ Obsoletes:	%{_lib}ilmbase2_5-devel < 3.0.0-0
 
 %files -n python-%{name}
 %{_libdir}/libPyImath_Python*_*-%{api}.so.%{major}*
+%{_libdir}/libPyImath.so
 %{python3_sitelib}/imath.so
 %{python3_sitelib}/imathnumpy.so
 
