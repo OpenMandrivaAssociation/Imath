@@ -1,5 +1,5 @@
-%global major 29
-%global api 3_1
+%global major 30
+%global api 3_2
 
 %define devname	%mklibname %{name} -d
 %define libname	%mklibname Imath
@@ -8,8 +8,8 @@
 %define olderlibname %mklibname Imath 3_0 28
 
 Name:		Imath
-Version:	3.1.12
-Release:	5
+Version:	3.2.2
+Release:	1
 Summary:	Library of 2D and 3D vector, matrix, and math operations for computer graphics
 License:	BSD
 URL:		https://github.com/AcademySoftwareFoundation/Imath
@@ -21,6 +21,8 @@ BuildRequires:	boost-devel
 BuildRequires:	boost-numpy-devel
 BuildRequires:	python%{pyver}dist(numpy)
 BuildRequires:	pkgconfig(python3)
+BuildRequires:  python
+BuildRequires:  pkgconfig(pybind11)
 # For documentation generation
 #BuildRequires:  python-sphinx
 #BuildRequires:  python-breathe
@@ -67,7 +69,8 @@ Obsoletes:	%{_lib}ilmbase2_5-devel < 3.0.0-0
 
 %prep
 %autosetup -n %{name}-%{version}
-%cmake -DPYTHON=ON -G Ninja
+###FIXME Dirty workaround.
+%cmake -DPYTHON=ON -DPython3_LIBRARY=/usr/lib64/libpython3.11.so -DCMAKE_EXE_LINKER_FLAGS="-lpython3.11" -DCMAKE_SHARED_LINKER_FLAGS="-lpython3.11" -G Ninja
 
 %build
 %ninja_build -C build
@@ -84,8 +87,8 @@ Obsoletes:	%{_lib}ilmbase2_5-devel < 3.0.0-0
 
 %files -n python-%{name}
 %{_libdir}/libPyImath_Python*_*-%{api}.so.%{major}*
-%{python3_sitearch}/imath.so
-%{python3_sitearch}/imathnumpy.so
+%{python3_sitelib}/imath.so
+%{python3_sitelib}/imathnumpy.so
 
 %files -n %{devname}
 %{_includedir}/Imath/
