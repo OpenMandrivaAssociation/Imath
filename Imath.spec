@@ -69,6 +69,7 @@ Obsoletes:	%{_lib}ilmbase2_5-devel < 3.0.0-0
 
 %prep
 %autosetup -n %{name}-%{version}
+###FIXME Dirty workaround.
 %cmake -DPYTHON=ON -DPython3_LIBRARY=/usr/lib64/libpython3.11.so -DCMAKE_EXE_LINKER_FLAGS="-lpython3.11" -DCMAKE_SHARED_LINKER_FLAGS="-lpython3.11" -G Ninja
 
 %build
@@ -86,8 +87,8 @@ Obsoletes:	%{_lib}ilmbase2_5-devel < 3.0.0-0
 
 %files -n python-%{name}
 %{_libdir}/libPyImath_Python*_*-%{api}.so.%{major}*
-#{python3_sitearch}/imath.so
-#{python3_sitearch}/imathnumpy.so
+%{python3_sitelib}/imath.so
+%{python3_sitelib}/imathnumpy.so
 
 %files -n %{devname}
 %{_includedir}/Imath/
