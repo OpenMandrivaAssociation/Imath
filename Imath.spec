@@ -15,12 +15,14 @@ License:	BSD
 URL:		https://github.com/AcademySoftwareFoundation/Imath
 Source0:	https://github.com/AcademySoftwareFoundation/Imath/archive/v%{version}/%{name}-%{version}.tar.gz
 
-BuildRequires:	cmake
-BuildRequires:	ninja
+BuildSystem:	cmake
+BuildOption:	-DPYTHON:BOOL=ON
+BuildOption:	-DPython3_LIBRARY=%{_libdir}/libpython%{pyver}.so
+BuildOption:	-DCMAKE_EXE_LINKER_FLAGS="-lpython%{pyver}"
+BuildOption:	-DCMAKE_SHARED_LINKER_FLAGS="-lpython%{pyver}"
 BuildRequires:	boost-devel
 BuildRequires:	boost-numpy-devel
 BuildRequires:	python%{pyver}dist(numpy)
-BuildRequires:	pkgconfig(python3)
 BuildRequires:  python
 BuildRequires:  pkgconfig(pybind11)
 # For documentation generation
@@ -66,17 +68,6 @@ Obsoletes:	%{_lib}ilmbase2_5-devel < 3.0.0-0
 
 %description -n %{devname}
 %{summary}.
-
-%prep
-%autosetup -n %{name}-%{version}
-###FIXME Dirty workaround.
-%cmake -DPYTHON=ON -DPython3_LIBRARY=/usr/lib64/libpython3.11.so -DCMAKE_EXE_LINKER_FLAGS="-lpython3.11" -DCMAKE_SHARED_LINKER_FLAGS="-lpython3.11" -G Ninja
-
-%build
-%ninja_build -C build
-
-%install
-%ninja_install -C build
 
 %files
 %license LICENSE.md
