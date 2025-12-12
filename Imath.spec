@@ -23,7 +23,7 @@ BuildOption:	-DCMAKE_SHARED_LINKER_FLAGS="-lpython%{pyver}"
 BuildRequires:	boost-devel
 BuildRequires:	boost-numpy-devel
 BuildRequires:	python%{pyver}dist(numpy)
-BuildRequires:  python
+BuildRequires:  pkgconfig(python)
 BuildRequires:  pkgconfig(pybind11)
 # For documentation generation
 #BuildRequires:  python-sphinx
