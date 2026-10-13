@@ -9,7 +9,7 @@
 
 Name:		Imath
 Version:	3.2.2
-Release: 5
+Release:	6
 Summary:	Library of 2D and 3D vector, matrix, and math operations for computer graphics
 License:	BSD
 URL:		https://github.com/AcademySoftwareFoundation/Imath
@@ -23,7 +23,7 @@ BuildOption:	-DCMAKE_SHARED_LINKER_FLAGS="-lpython%{pyver}"
 BuildRequires:	boost-devel
 BuildRequires:	boost-numpy-devel
 BuildRequires:	python%{pyver}dist(numpy)
-BuildRequires:  pkgconfig(python)
+BuildRequires:	pkgconfig(python3)
 BuildRequires:  pkgconfig(pybind11)
 # For documentation generation
 #BuildRequires:  python-sphinx
